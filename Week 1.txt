@@ -1,0 +1,150 @@
+Ex. No. 	: 	1.1 				
+				
+Converting Input Strings
+Write a program to convert strings to an integer and float and display its type.
+Sample Input:
+10
+10.9
+Sample Output:
+10,<class 'int'>
+10.9,<class 'float'>
+
+For example:
+Input
+Result
+10
+10.9
+10,<class 'int'>
+10.9,<class 'float'>
+s=input()
+st=input()
+i=int(s)
+f=(float(st))
+r=round(f,1)
+print(i,type(i),sep=",")
+print(r,type(r),sep=",")
+
+
+Ex. No. 	: 	1.2 				
+				
+Gross Salary
+Ramesh's basic salary is input through the keyboard. His dearness allowance is 40% of his basic salary, and his house rent allowance is 20% of his basic salary. Write a program to calculate his gross salary.
+
+Sample Input:
+10000
+Sample Output:
+16000
+For example:
+Input
+Result
+10000
+16000
+BS=int(input())
+DA=(0.4*BS)
+HR=(0.2*BS)
+GS=BS+DA+HR
+print(int(GS))
+
+
+Ex. No. 	: 	1.3 				
+				
+Square Root
+Write a simple python program to find the square root of a given floating point number. The output should be displayed with 3 decimal places.
+
+Sample Input:
+8.00
+Sample Output:
+2.828
+For example:
+Input
+Result
+14.00
+3.742
+import math
+n=float(input())
+sq=math.sqrt(n)
+print(format(sq,".3f"))
+
+
+Ex. No. 	: 	1.4 				
+				
+Gain percent
+Alfred buys an old scooter for Rs. X and spends Rs. Y on its repairs. If he sells the scooter for Rs. Z (Z>X+Y). Write a program to help Alfred to find his gain percent. Get all the above-mentioned values through the keyboard and find the gain percent.
+
+Input Format:
+The first line contains the Rs X
+The second line contains Rs Y
+The third line contains Rs Z
+Sample Input:
+10000
+250
+15000
+Sample Output:
+46.34 is the gain percent.
+
+For example:
+Input
+Result
+45500
+500
+60000
+30.43 is the gain percent.
+X=int(input())
+Y=int(input())
+Z=int(input())
+GP=((Z-(X+Y))/(X+Y))*100
+print(format(GP,".2f"),"is the gain percent.")
+
+
+Ex. No. 	: 	1.5 				
+				
+Deposits
+In many jurisdictions, a small deposit is added to drink containers to encourage people to recycle them. In one particular jurisdiction, drink containers holding one liter or less have a $0.10 deposit and drink containers holding more than one liter have a $0.25 deposit. Write a program that reads the number of containers of each size(less and more)  from the user. Your program should continue by computing and displaying the refund that will be received for returning those containers. Format the output so that it includes a dollar sign and always displays exactly two decimal places.
+Sample Input
+10
+20
+Sample Output
+Your total refund will be $6.00.
+
+For example:
+Input
+Result
+20
+20
+Your total refund will be $7.00.
+l=int(input())
+m=int(input())
+TR=(l*0.10+m*0.25)
+print("Your total refund will be ",format(TR,".2f"),sep="$",end=".")
+
+
+Ex. No. 	: 	1.6 				
+				
+Carpenter
+Justin is a carpenter who works on an hourly basis. He works in a company where he is paid Rs 50 for an hour on weekdays and Rs 80 for an hour on weekends. He works 10 hrs more on weekdays than weekends. If the salary paid for him is given, write a program to find the number of hours he has worked on weekdays and weekends.
+Hint:
+If the final result(hrs) are in -ve convert that to +ve using abs() function
+The abs() function returns the absolute value of the given number.
+
+number = -20
+absolute_number = abs(number)
+print(absolute_number)
+# Output: 20
+
+Sample Input:
+450
+Sample Output:
+weekdays 10.38
+weekend 0.38
+
+For example:
+Input
+Result
+450
+weekdays 10.38
+weekend 0.38
+s=int(input())
+x=(s-500)/130
+absolute=abs(x)
+print("weekdays",format(10+absolute,".2f"))
+print("weekend",format(absolute,".2f"))

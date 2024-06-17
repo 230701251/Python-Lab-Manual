@@ -1,0 +1,306 @@
+Ex. No. 	: 	6.1 				
+				
+Count Chars
+Write a python program to count all letters, digits, and special symbols respectively from a given string
+
+For example:
+
+Input
+Result
+rec@123
+3
+3
+1
+k=input()
+c1=0
+c2=0
+c3=0
+for i in k:
+    if(i.isdigit()):
+        c1+=1
+    elif(i.isalpha()):
+        c2+=1
+    else:
+        c3+=1
+print(c2)
+print(c1)
+print(c3)
+
+
+Ex. No. 	: 	6.2 				
+				
+Decompress the String
+Assume that the given string has enough memory. Don't use any extra space(IN-PLACE)
+
+
+Sample Input 1
+a2b4c6
+
+Sample Output 1
+aabbbbcccccc
+
+s = input()
+
+i = 0
+while i < len(s):
+    char = s[i]
+    count_str = ""
+    i += 1
+    while i < len(s) and s[i].isdigit():
+        count_str += s[i]
+        i += 1
+    count = int(count_str) if count_str else 1
+    print(char * count, end='')
+
+
+Ex. No. 	: 	6.3 				
+				
+First N Common Chars
+Two string values S1, S2 are passed as the input. The program must print first N characters present in S1 which are also present in S2.
+
+Input Format:
+
+The first line contains S1.
+The second line contains S2.
+The third line contains N.
+
+Output Format:
+
+The first line contains the N characters present in S1 which are also present in S2.
+
+Boundary Conditions:
+
+2 <= N <= 10
+2 <= Length of S1, S2 <= 1000
+
+Example Input/Output 1:
+
+Input:
+
+abcbde
+cdefghbb
+3
+
+Output:
+
+bcd
+
+Note:
+
+b occurs twice in common but must be printed only once.
+
+def common_characters(S1, S2, N):
+    common_chars = []
+    for char in S1:
+        if char in S2 and char not in common_chars:
+            common_chars.append(char)
+            if len(common_chars) == N:
+                break
+    return ''.join(common_chars)
+S1 = input().strip()
+S2 = input().strip()
+N = int(input().strip())
+print(common_characters(S1, S2, N))
+
+
+Ex. No. 	: 	6.4 				
+				
+Remove Characters
+Given two Strings s1 and s2, remove all the characters from s1 which is present in s2.
+
+Constraints
+1<= string length <= 200
+
+Sample Input 1
+experience
+enc
+
+Sample Output 1
+Xpri
+
+e1=input()
+e2=input()
+e1=''.join(i for i in e1 if i not in e2)
+print(e1)
+
+
+Ex. No. 	: 	6.5 				
+				
+Remove Palindrome Words
+String should contain only the words are not palindrome.
+
+Sample Input 1
+Malayalam is my mother tongue
+
+Sample Output 1
+is my mother tongue
+
+l=input().lower()
+l1=l.split()
+for i in l1:
+    if(i[::-1]!=i):
+        print(i,end=' ')
+
+
+Ex. No. 	: 	6.6 				
+				
+Return Second World in Uppercase
+
+Write a program that takes as input a string (sentence), and returns its second word in uppercase.
+
+For example:
+
+If input is "Wipro Technologies Bangalore" the function should return "TECHNOLOGIES"
+If input is "Hello World" the function should return "WORLD"
+If input is "Hello" the program should return "LESS"
+
+NOTE 1: If input is a sentence with less than 2 words, the program should return the word "LESS".
+NOTE 2: The result should have no leading or trailing spaces.
+
+For example:
+Input
+Result
+Wipro Technologies Bangalore
+TECHNOLOGIES
+Hello World
+WORLD
+Hello
+LESS
+
+e=input()
+l=e.split()
+if(len(l)>1):
+    print(l[1].upper())
+else:
+    print("LESS")
+
+
+Ex. No. 	: 	6.7 				
+				
+Reverse String
+Reverse a string without affecting special characters. Given a string S, containing special characters and all the alphabets, reverse the string without affecting the positions of the special characters.
+
+
+Input:
+A&B
+Output:
+B&A
+Explanation: As we ignore '&' and
+As we ignore '&' and then reverse, so answer is "B&A".
+
+
+For example:
+
+Input	Result
+A&x#
+x&A#
+
+seq =input()
+chars = ['$', '%', '*', '#', '^']
+nums = []
+for i in range(len(seq)):
+    if seq[i] not in chars:
+        nums.append(seq[i])
+nums.reverse()
+for j in seq:
+    if j in chars:
+        idx = seq.index(j)
+        nums.insert(idx, j)
+reverse = "".join(nums)
+print(reverse)
+
+
+Ex. No. 	: 	6.8 				
+				
+String characters balance Test
+
+Write a program to check if two strings are balanced. For example, strings s1 and s2 are balanced if all the characters in the s1 are present in s2. The character's position doesn't matter. If balanced display as "true" ,otherwise "false".
+
+
+For example:
+
+Input	Result
+Yn
+PYnative
+True
+
+a=input() 
+b=input()
+count=0
+for i in range (0,len(a)):
+    for j in range (0, len(b)): 
+        if a[i]==b[j]: 
+            count+=1
+if count==len(a):
+    print("True")
+else:
+    print("False")
+
+
+
+Ex. No. 	: 	6.9 								
+
+Unique Names
+
+In this exercise, you will create a program that reads words from the user until the user enters a blank line. After the user enters a blank line your program should display each word entered by the user exactly once. The words should be displayed in the same order that they were first entered. For example, if the user enters:
+
+Input: 
+first
+second
+first
+third
+second
+
+then your program should display:
+
+Output:
+first
+second
+third
+
+a= [] 
+while True:
+    b = input().strip() 
+    if not b:
+        break
+    if b not in a:
+        a.append(b)
+for b in a: 
+    print(b)
+
+
+Ex. No. 	: 	6.10 				
+				
+Username Domain Extension
+Given a string S which is of the format USERNAME@DOMAIN.EXTENSION, the program must print the EXTENSION, DOMAIN, USERNAME in the reverse order.
+
+Input Format:
+The first line contains S.
+
+Output Format:
+The first line contains EXTENSION.
+The second line contains DOMAIN.
+The third line contains USERNAME.
+
+Boundary Condition:
+1 <= Length of S <= 100
+
+Example Input/Output 1:
+
+Input:
+
+vijayakumar.r@rajalakshmi.edu.in
+
+Output:
+
+edu.in
+rajalakshmi
+vijayakumar.r
+
+
+s=input()
+s1=s.find(".")
+s2=s.find("@")
+print(s[s1+1:])
+print(s[s2+1:s1])
+print(s[:s2])

@@ -1,0 +1,265 @@
+Ex. No. 	: 	8.1 				
+				
+Binary String
+Coders here is a simple task for you, Given string str. Your task is to check whether it is a binary string or not by using python set.
+
+Examples:  
+Input: str = "01010101010"
+Output: Yes
+
+Input: str = "REC101"
+Output: No
+For example:
+Input
+Result
+01010101010
+Yes
+010101 10101
+No
+n=input()
+for i in range(len(n)):
+    if n.isdigit():
+        flag=1
+    else:
+        flag=0
+if flag==1:
+    print("Yes")
+else:
+    print("No")
+
+ 
+Ex. No. 	: 	8.2 								
+
+Check Pair
+Given a tuple and a positive integer k, the task is to find the count of distinct pairs in the tuple whose sum is equal to K.
+Examples:
+Input: t = (5, 6, 5, 7, 7, 8 ), K = 13 
+Output: 2 
+Explanation: 
+Pairs with sum K( = 13) are  {(5, 8), (6, 7), (6, 7)}. 
+Therefore, distinct pairs with sum K( = 13) are { (5, 8), (6, 7) }. 
+Therefore, the required output is 2.
+For example:
+Input
+Result
+1,2,1,2,5
+3
+1
+1,2
+0
+0
+
+t=input().split(",")
+t1=[]
+count=0
+k=int(input())
+for i in range(len(t)): 
+    x=int(t[i])
+    t1.append(x) 
+it=list(set(t1))
+for i in range(len(it)):
+    for j in range(1, len(it)-1): 
+        if i!=j:
+            if it[i]+it[j]==k:
+                count+=1
+print(count)
+
+
+Ex. No. 	: 	8.3 								
+
+DNA Sequence
+The DNA sequence is composed of a series of nucleotides abbreviated as 'A', 'C', 'G', and 'T'.
+      For example, "ACGAATTCCG" is a DNA sequence.
+When studying DNA, it is useful to identify repeated sequences within the DNA.
+Given a string s that represents a DNA sequence, return all the 10-letter-long sequences (substrings) that occur more than once in a DNA molecule. You may return the answer in any order.
+
+Example 1:
+Input: s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"
+Output: ["AAAAACCCCC","CCCCCAAAAA"]
+Example 2:
+Input: s = "AAAAAAAAAAAAA"
+Output: ["AAAAAAAAAA"]
+ 
+For example:
+Input
+Result
+AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT
+AAAAACCCCC
+CCCCCAAAAA
+
+s=input()
+s_len=10
+
+if len(s)<=s_len:
+    result=""
+else:
+    s_count={}
+    for i in range(len(s) - s_len+1):
+        seq = s[i:i + s_len]
+        if seq in s_count:
+            s_count[seq] += 1
+        else:
+            s_count[seq] = 1
+    repeat_seq = [seq for seq, count in s_count.items() if count > 1]
+    result="\n".join(repeat_seq)
+print(result)
+
+
+Ex. No. 	: 	8.4 				
+				
+Print repeated no
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.There is only one repeated number in nums, return this repeated number. Solve the problem using set.
+
+Example 1:
+Input: nums = [1,3,4,2,2]
+Output: 2
+
+Example 2:
+Input: nums = [3,1,3,4,2]
+Output: 3
+
+For example:
+Input
+Result
+1 3 4 4 2
+4
+l=input().split()
+list=[eval(i) for i in l]
+list.sort()
+for i in range(len(list)-1):
+    if list[i]==list[i+1]:
+        print(list[i])
+
+
+Ex. No. 	: 	8.5 				
+				
+Remove repeated
+Write a program to eliminate the common elements in the given 2 arrays and print only the non-repeating elements and the total number of such non-repeating elements.
+Input Format:
+The first line contains space-separated values, denoting the size of the two arrays in integer format respectively.
+The next two lines contain the space-separated integer arrays to be compared.
+
+Sample Input:
+5 4
+1 2 8 6 5
+2 6 8 10
+Sample Output:
+1 5 10
+3
+Sample  Input: 
+5 5
+1 2 3 4 5
+1 2 3 4 5
+Sample Output:
+NO SUCH ELEMENTS
+For example:
+Input
+Result
+5 4
+1 2 8 6 5
+2 6 8 10
+1 5 10
+3
+
+l=input().split()
+l=list(l)
+il=[eval(i) for i in l]
+l1=input().split()
+l2=input().split()
+il1=[eval(i) for i in l1]
+il2=[eval(i) for i in l2] 
+ill_set = set (il1) 
+il2_set = set (il2) 
+count=0
+il1d = list(ill_set - (ill_set & il2_set))
+il2d = list(il2_set - (ill_set & il2_set))
+it=il1d+il2d
+for i in range(len(it)):
+    print(it[i], end=" ")
+    count+=1
+print(end="\n") 
+print(count)
+
+
+Ex. No. 	: 	8.6 				
+				
+Malfunctioning Keyboard
+There is a malfunctioning keyboard where some letter keys do not work. All other keys on the keyboard work properly.
+Given a string text of words separated by a single space (no leading or trailing spaces) and a string brokenLetters of all distinct letter keys that are broken, return the number of words in text you can fully type using this keyboard.
+Example 1:
+Input: text = "hello world", brokenLetters = "ad"
+Output: 
+1
+Explanation: We cannot type "world" because the 'd' key is broken.
+
+For example:
+Input
+Result
+hello world
+ad
+1
+
+a=input().split() 
+b=input()
+s=0
+for i in range(len(a)): 
+ 	c=a[i]
+ 	count=0
+ 	for j in range(len(c)): 
+ 		if(c[j].lower() in b):
+ 			count+=1 
+ 	if(count==0):
+ 		s+=1
+print(s)
+
+
+ Ex. No. 	: 	8.7 				
+				
+American keyboard
+Given an array of strings words, return the words that can be typed using letters of the alphabet on only one row of American keyboard like the image below.
+In the American keyboard:
+* the first row consists of the characters "qwertyuiop",
+* the second row consists of the characters "asdfghjkl", and
+* the third row consists of the characters "zxcvbnm".
+
+ 
+Example 1:
+Input: words = ["Hello","Alaska","Dad","Peace"]
+Output: ["Alaska","Dad"]
+Example 2:
+Input: words = ["omk"]
+Output: []
+Example 3:
+Input: words = ["adsdf","sfd"]
+Output: ["adsdf","sfd"]
+
+For example:
+Input
+Result
+4
+Hello
+Alaska
+Dad
+Peace
+Alaska
+Dad
+rows=["qwertyuiop","asdfghjkl","zxcvbnm"] 
+n=int(input())
+words=[]
+
+for i in range(n): 
+ 	word=input() 
+ 	words.append(word)
+l=[]
+for word in words: 
+ 	flag=False
+ 	for row in rows:
+ 		if all(char in row for char in word.lower()):
+ 			flag=True
+ 			break 
+ 	if flag:
+ 		if l:
+ 			for i in range(len(l)): 
+ 				print(l[i])
+ 		else:
+ 			print("No words")
